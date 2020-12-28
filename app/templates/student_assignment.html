@@ -1,0 +1,36 @@
+﻿{% extends "base.html" %}
+
+{% block content %}
+<div class="student_assignment">
+    <a href="{{ url_for('logout') }}">Log out</a>
+    <h1 class="subheader">Student Assignments</h1>
+
+
+    <p>Accepted Application:</p>
+
+    <div>
+        <p><b>{{ Aapps }}</b></p>
+    </div>
+
+    <p>Pending Applictions:</p>
+    {% for c in myapps %}
+
+    <div>
+        <p><b>{{ c.course , c.instructor }}</b></p>
+    </div>
+    {% endfor %}
+
+    <p><a href="{{ url_for('remove_application') }}">Click to remove a application!</a></p>
+
+    <p>Open Courses:</p>
+    {% for c in course %}
+
+    <div>
+        <p><b>{{ c.name , c.instructor }}</b></p>
+    </div>
+    {% endfor %}
+
+    <p><a href="{{ url_for('add_application') }}">Click to apply for a course!</a></p>
+</div>
+
+{% endblock %}

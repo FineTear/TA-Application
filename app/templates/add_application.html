@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="add_application">
+    <a href="{{ url_for('logout') }}">Log out</a>
+    <h1 class="subheader">Add Application</h1>
+    
+
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+
+        <p>Open Courses:</p>
+        {% for c in course %}
+
+        <div>
+            <p><b>{{ c.name , c.instructor }}</b></p>
+        </div>
+        {% endfor %}
+
+        <div>
+            <p> Enter the course name:</p>
+        </div>
+
+        <p>
+            {{ form.name.label }}<br>
+            {{ form.name(size=32) }}<br>
+            {% for error in form.name.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+            <div><p> Enter the instructor's lastname:</p></div>
+            {{ form.instructor.label }}<br>
+            {{ form.instructor(size=32) }}<br>
+            {% for error in form.instructor.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+            <div><p> Enter the grade you have in this course:</p></div>
+            {{ form.grade.label }}<br>
+            {{ form.grade(size=32) }}<br>
+            {% for error in form.grade.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+            <div><p> Enter the year:semester you took the course (ex: 2018:1):</p></div>
+            {{ form.datetaken.label }}<br>
+            {{ form.datetaken(size=32) }}<br>
+            {% for error in form.datetaken.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+            <div><p> Enter the year:semester you want to TA for the course (ex: 2019:2):</p></div>
+            {{ form.dateTA.label }}<br>
+            {{ form.dateTA(size=32) }}<br>
+            {% for error in form.dateTA.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+            <div><p> Have you ever been a TA before?:</p></div>
+            {{ form.experience.label }}<br>
+            {{ form.experience(size=32) }}<br>
+            {% for error in form.experience.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+
+        <div class="add_button">
+        <p> {{ form.submit() }}</p>
+        </div>
+
+    </form>
+</div>
+{% endblock %}

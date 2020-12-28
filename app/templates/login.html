@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+    #login-msg {
+        padding-bottom: 20px;
+        text-align: center;
+    }
+
+    .login {
+        background-color: beige;
+        border: 1px solid lightgrey;
+        margin: 0 auto;
+        width: 55%;
+    }
+
+    .uni-logo {
+        display: block;
+        margin-top: 15px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .input-info {
+        margin: 0 auto;
+        width: 85%;
+    }
+
+    p, ul, .login-button, .main-header {
+        padding-top: 0%;
+        padding-bottom: 0%;
+    }
+
+    .form-fields {
+        display: block;
+        padding-bottom: 5px;
+        text-align: center;
+    }
+
+    .form-type {
+        padding-top: 0%;
+    }
+
+    .login-button {
+        padding-bottom: 20px;
+        text-align: center;
+    }
+
+    #create-account {
+        text-align: center;
+    }
+</style>
+
+<h5 id="login-msg">You must sign in to continue.</h5>
+
+<div class = "login">
+
+    <img src="https://ok6static.oktacdn.com/fs/bco/1/fs02rbgatjJDz8p2L2p7" class="uni-logo" alt="uni-logo">
+    
+    <div class="input-info">
+    
+        <form action="" method="post" novalidate>
+
+            {{ form.hidden_tag() }}
+
+            <p class="form-fields">
+                {{ form.username.label }}<br>
+                {{ form.username(size=32) }}<br>
+                {% for error in form.username.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+
+            <p class="form-fields">
+                {{ form.password.label }}<br>
+                {{ form.password(size=32) }}<br>
+                {% for error in form.password.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+            <p>
+                {{ form.remember_me(style="margin-left:50px") }} 
+                {{ form.remember_me.label }}
+            </p>
+        
+            <div class="login-button">
+                <p> 
+                    {{ form.submit(style="width:73%") }}
+                </p>
+
+            </div>
+                
+            <p id="create-account">
+                Don't have an account? 
+                <a href="{{ url_for('create_account') }}">Create one.</a>
+            </p>
+            
+        </form>
+
+    </div><!-- End .input info -->
+
+</div>
+{% endblock %}
+

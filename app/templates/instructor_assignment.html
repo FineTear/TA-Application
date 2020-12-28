@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="instructor_assignment">
+    <a href="{{ url_for('logout') }}">Log out</a>
+	<h1 class="subheader">Instructor Assignment</h1>
+
+
+	<p>Student Applications for you:</p>
+	{% for c in apps4me %}
+
+	<div>
+		<p> 
+		<b>{{ "Course name: " + c.course }}</b><br>
+		<b>{{ "Student's Wsu ID: "}} {{c.wsuid}}</b><br>
+		<b>{{ "Grade in class: " + c.grade }}</b><br>
+		<b>{{ "Year when class was taken:Semester: " + c.datetaken }}</b><br>
+		<b>{{ "Applied TA-ship year:Semester: " + c.dateTA }}</b><br>
+		<b>{{ "Have you they been a TA before?: " + c.experience }}</b><br>
+		<br>
+		</p>
+	</div>
+	{% endfor %}
+
+	<p>Accepted Student Applications:</p>
+	{% for c in appsdone %}
+
+	<div>
+		<p> 
+		<b>{{ "Course name: " + c.course }}</b><br>
+		<b>{{ "Student's Wsu ID: "}} {{c.wsuid}}</b><br>
+		<b>{{ "Grade in class: " + c.grade }}</b><br>
+		<b>{{ "Year when class was taken:Semester: " + c.datetaken }}</b><br>
+		<b>{{ "Applied TA-ship year:Semester: " + c.dateTA }}</b><br>
+		<b>{{ "Have you they been a TA before?: " + c.experience }}</b><br>
+		<br>
+		</p>
+	</div>
+	{% endfor %}
+
+	<p><a href="{{ url_for('add_remove_student') }}">Click to add or remove a student from a course!</a></p>
+</div>
+{% endblock %}

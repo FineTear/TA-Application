@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="add_remove_student">
+	<a href="{{ url_for('logout') }}">Log out</a>
+	<h1 class="subheader">Add/Remove Student</h1>
+
+	
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+	
+		<div>
+			<p>This is the addremovestudents page</p>
+		</div>
+
+		<p>Student Applications for you:</p>
+			{% for c in apps4me %}
+
+		<div>
+			<p> 
+			<b>{{ "Course name: " + c.course }}</b><br>
+			<b>{{ "Student's Wsu ID: "}} {{c.wsuid}}</b><br>
+			<b>{{ "Grade in class: " + c.grade }}</b><br>
+			<b>{{ "Year when class was taken:Semester: " + c.datetaken }}</b><br>
+			<b>{{ "Applied TA-ship year:Semester: " + c.dateTA }}</b><br>
+			<b>{{ "Have you they been a TA before?: " + c.experience }}</b><br>
+			<br>
+			</p>
+		</div>
+		{% endfor %}
+		
+		<p>Accepted Student Applications:</p>
+		{% for d in appsdone %}
+
+		<div>
+			<p> 
+			<b>{{ "Course name: " + d.course }}</b><br>
+			<b>{{ "Student's Wsu ID: "}} {{d.wsuid}}</b><br>
+			<b>{{ "Grade in class: " + d.grade }}</b><br>
+			<b>{{ "Year when class was taken:Semester: " + d.datetaken }}</b><br>
+			<b>{{ "Applied TA-ship year:Semester: " + d.dateTA }}</b><br>
+			<b>{{ "Have you they been a TA before?: " + d.experience }}</b><br>
+			<br>
+			</p>
+		</div>
+		{% endfor %}  
+		
+		<div>
+			<p> Enter the course and student id of the application to add/remove:</p>
+		</div>
+			
+		<p>
+			{{ form.course.label }}<br>
+			{{ form.course(size=32) }}<br>
+			{% for error in form.course.errors %}
+			<span style="color: red;">[{{ error }}]</span>
+			{% endfor %}
+			{{ form.wsuid.label }}<br>
+			{{ form.wsuid(size=32) }}<br>
+			{% for error in form.wsuid.errors %}
+			<span style="color: red;">[{{ error }}]</span>
+			{% endfor %}
+			
+			<div><p> Do you want to add or remove the student from this course?:</p></div>
+			{{ form.choice.label }}<br>
+			{{ form.choice(size=32) }}<br>
+			{% for error in form.choice.errors %}
+			<span style="color: red;">[{{ error }}]</span>
+			{% endfor %}
+		</p>
+
+		<div class="add_remove_student_button">
+		<p> {{ form.submit() }}</p>
+		</div>
+	</form>
+</div>
+{% endblock %}

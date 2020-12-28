@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+
+        <meta charset="utf-8">
+        <title>TA Application | School of Electrical Engineering & Computer Science</title>
+
+        <!-- The primary WSU Spine stylesheet -->
+        <link href="https://repo.wsu.edu/spine/2/spine.min.css" rel="stylesheet" type="text/css" />
+        
+        <!-- Additional CSS stylings -->
+        <style type="text/css">
+
+            #jacket, .main-header {
+                background-color: white;
+            }
+
+            .main-header { 
+                font-family: "Open Sans", "Lucida Sans", "Lucida Grande", "Lucida Sans Unicode", sans-serif;
+            }
+
+            .site-name {
+                font-size: 32px;
+                letter-spacing: -1px;
+                line-height: 32px;
+            }
+
+            .sub-name {
+                color: #464E54;
+                font-size: 25px;
+                text-transform: uppercase;
+            }
+          </style>
+
+        <!-- Current library versions can be found at https://developers.google.com/speed/libraries/ -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+		<script src="https://repo.wsu.edu/spine/2/spine.min.js"></script>
+
+        <!-- Ensure the Spine is displayed fully when no-JS -->
+        <noscript>
+            <style>
+                #spine .spine-sitenav ul ul li {
+                    display: block !important;
+                }
+            </style>
+		</noscript>
+		
+    </head>
+
+    <body>
+
+        <div id="jacket">
+
+            <div id="binder" class="fixed">
+
+                <!-- Primary site content should go within this main element. -->
+                <main id="wsu-main-content" style ="min-height: 937px;">
+                   
+                    <header class="main-header">
+                        
+                        <div class="header-group">
+                            
+                            <span class = "site-name">School of Electrical Engineering & Computer Science</span>
+                            <span Class = "sub-name">TA Application</span>
+
+                        </div>
+
+                    </header>
+
+                    <div class="main-page">
+
+                        <article id="signin">
+                            <div class="contain"> <!--This is where each template is loaded-->
+                                {% block content %}
+                                {% endblock %}
+                                </div>
+                        </article>
+
+                    </div><!-- End .main-page -->
+
+                </main><!-- End #wsu-main-content -->
+
+                <div id="spine" class="spine-column white search-closed  shelved" style="min-height: 888px; position: fixed; top: 0px;">
+
+                    <div id="glue" class="spine-glue" style="min-height: 888px;">
+
+                        <header class="spine-header">
+                            <a href="https://wsu.edu/" id="wsu-signature">Washington State University</a>
+                        </header>
+
+                        <!-- Both #wsu-actions and .spine-actions are required here. -->
+                        <section id="wsu-actions" class="spine-actions">
+
+                            <!-- Both #wsu-actions-tabs and .spine-actions-tabs are required here. -->
+                            <ul id="wsu-actions-tabs" class="spine-actions-tabs clearfix">
+                                <li id="wsu-search-tab" class="spine-search-tab closed">
+                                    <button>Search</button>
+                                </li>
+                                <li id="wsu-contact-tab" class="spine-contact-tab closed">
+                                    <button>Contact</button>
+                                </li>
+                                <li id="wsu-share-tab" class="spine-share-tab closed">
+                                    <button>Share</button>
+                                </li>
+                                <li id="wsu-print-tab" class="spine-print-tab closed">
+                                    <button>Print</button>
+                                </li>
+                            </ul>
+
+                        </section><!-- End #wsu-actions .spine-actions -->
+
+                        <!-- Both #spine-navigation and .spine-navigation are required here. -->
+                        <section id="spine-navigation" class="spine-navigation">
+                            
+                            <!-- The main navigation for the site. -->
+                            <nav class="spine-sitenav">
+
+                                <ul>
+                                    <li class="current"><a href="login">Home</a></li>
+                                    <li class="parent"><a href="student_main">Student</a>
+                                        <ul>
+                                            <li class="student assignment"><a href="student_assignment">Assignments</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="parent"><a href="instructor_main">Instructor</a>
+                                        <ul>
+                                            <li class="instructor courses"><a href="course">Courses</a></li>
+                                            <li class="instructor assignments"><a href="instructor_assignment">Assignments</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="contact"><a href="https://school.eecs.wsu.edu/team-epsilon/contact/">Contact</a></li>
+                                </ul>
+                                
+                            </nav>
+
+                        </section><!-- End #spine-navigation .spine-navigation -->
+
+                        <!-- Social and required global WSU links. -->
+                        <footer class="spine-footer">
+
+                            <nav id="wsu-social-channels" class="spine-social-channels">
+
+                                <ul>
+                                    <li class="facebook-channel"><a href="https://facebook.com/wsupullman">Facebook</a></li>
+                                    <li class="twitter-channel"><a href="https://twitter.com/wsupullman">Twitter</a></li>
+                                    <li class="youtube-channel"><a href="https://www.youtube.com/washingtonstateuniv">YouTube</a></li>
+                                    <li class="directory-channel"><a href="https://socialmedia.wsu.edu/">Social media at WSU</a></li>
+                                </ul>
+
+                            </nav>
+                            
+                            <nav id="wsu-global-links" class="spine-global-links">
+
+                                <ul>
+                                    <li class="mywsu-link"><a href="https://my.wsu.edu/">myWSU</a></li>
+                                    <li class="access-link"><a href="https://access.wsu.edu/">Access</a></li>
+                                    <li class="policies-link"><a href="https://policies.wsu.edu/">Policies</a></li>
+                                    <li class="copyright-link"><a href="https://copyright.wsu.edu">&copy;</a></li>
+                                </ul>
+
+                            </nav>
+
+                        </footer><!-- End .spine-footer -->
+
+                    </div><!-- End #glue -->
+
+                </div><!-- End #spine -->
+
+            </div><!-- End #binder -->
+
+        </div><!-- End #jacket -->
+
+        <!-- Contact information from eecs main website. -->
+        <div id="contact-details" itemscope="" itemtype="http://schema.org/Organization">
+
+            <meta itemprop="name" class="required" content="Washington State University">
+            <meta itemprop="department" class="required" content="School of Electrical Engineering &amp; Computer Science">
+            <meta itemprop="url" class="required" content="https://school.eecs.wsu.edu">
+            
+            <div itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress">
+                <meta itemprop="streetAddress" class="optional" content="PO Box 642752">
+            </div>
+            
+            <meta itemprop="telephone" class="required" content="509-335-6602">
+            <meta itemprop="email" class="required" content="eecs.office@wsu.edu">
+            <meta itemprop="ContactPoint" title="Contact Page..." class="optional" content="https://school.eecs.wsu.edu/contact/">
+
+        </div>
+
+    </body>
+
+</html>
